@@ -14,6 +14,7 @@ class FMRIModelBase(ABC):
     def predict(self):
       pass
 
+
 class ModelA(FMRIModelBase):
   """This is a sort of prototype implementation for our base model."""
   def __init__(self):
@@ -24,6 +25,11 @@ class ModelA(FMRIModelBase):
 
   def predict(self):
     print("ModelA: predicted")
+
+
+class ModelAExtended(ModelA):
+  def fit(self):
+    print("ModelAExtended: fitted")
 
 
 class ModelB(FMRIModelBase):
@@ -38,6 +44,20 @@ class ModelB(FMRIModelBase):
     print("ModelB: predicted")
 
 
+class ModelC(FMRIModelBase):
+  """This is a sort of prototype implementation for our base model."""
+  def __init__(self):
+    pass
+
+  def load(self, data):
+    print("ModelC: loaded")
+
+  def fit(self):
+    print("ModelC: fitted")
+
+  def predict(self):
+    print("ModelC: predicted")
+
 
 data = [1, 2, 3]
 
@@ -46,12 +66,17 @@ ma.load(data)
 ma.fit()
 ma.predict()
 
+ma_extended = ModelAExtended()
+ma_extended.load(data)
+ma_extended.fit()
+ma_extended.predict()
+
 mb = ModelB()
 mb.load(data)
 mb.fit()
 mb.predict()
 
-# mc = ModelC()
-# mc.load()
-# mc.fit()
-# mc.predict()
+mc = ModelC()
+mc.load(data)
+mc.fit()
+mc.predict()
