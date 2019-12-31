@@ -64,29 +64,23 @@ class ModelC(FMRIModelBase):
     print("ModelC: predicted")
 
 
+def runner(models, data):
+    for model in models:
+        print(f"--> Running on {model}")
+        m = model()
+        m.load(data)
+        m.fit()
+        m.predict()
+
+
 data = [1, 2, 3]
 
-ma = ModelA()
-ma.load(data)
-ma.fit()
-ma.predict()
+models = [
+  ModelA,
+  ModelAExtended,
+  ModelB,
+  ModelBExtended,
+  ModelC,
+]
 
-ma_extended = ModelAExtended()
-ma_extended.load(data)
-ma_extended.fit()
-ma_extended.predict()
-
-mb = ModelB()
-mb.load(data)
-mb.fit()
-mb.predict()
-
-mb_extended = ModelBExtended()
-mb_extended.load(data)
-mb_extended.fit()
-mb_extended.predict()
-
-mc = ModelC()
-mc.load(data)
-mc.fit()
-mc.predict()
+runner(models, data)
