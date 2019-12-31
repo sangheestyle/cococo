@@ -13,7 +13,27 @@ class ModelA:
     print("ModelA: predicted")
 
 
-m = ModelA()
-m.load()
-m.fit()
-m.predict()
+class ModelB:
+  """This is a sort of prototype implementation for our base model."""
+  def __init__(self):
+    pass
+
+  def load(self):
+    print("ModelB: loaded")
+
+  def fit(self):
+    print("ModelB: fitted")
+
+  def predict(self):
+    print("ModelB: predicted")
+
+
+ma = ModelA()
+ma.load()
+ma.fit()
+ma.predict()
+
+mb = ModelB()
+mb.load()
+mb.fit()
+mb.predict()
