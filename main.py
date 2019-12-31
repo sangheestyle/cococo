@@ -44,6 +44,11 @@ class ModelB(FMRIModelBase):
     print("ModelB: predicted")
 
 
+class ModelBExtended(ModelB):
+  def predict(self):
+    print("ModelBExtended: predicting")
+
+
 class ModelC(FMRIModelBase):
   """This is a sort of prototype implementation for our base model."""
   def __init__(self):
@@ -75,6 +80,11 @@ mb = ModelB()
 mb.load(data)
 mb.fit()
 mb.predict()
+
+mb_extended = ModelBExtended()
+mb_extended.load(data)
+mb_extended.fit()
+mb_extended.predict()
 
 mc = ModelC()
 mc.load(data)
